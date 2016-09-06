@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="index_banner width100">
+	<div id="full-screen-slider">
+        <ul id="slides">
+            <li style="background:url('/static/images/teachers_banner.jpg') no-repeat center top"><a href="#" target="_blank"></a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="clear"></div>
+
+<div class="teachers margint40 width100">
+    <div class="title width100"><div class="width965 marginauto"><img src="/static/images/teachers_title.jpg"></div></div>
+    <ul class="width965 marginauto ">
+		{%for x in teachers%}
+       <li>
+            <span class="fright"><p><a class="teachers_name" href="#">{{x.name}}</a> &nbsp;&nbsp; 著名python讲师</p>
+            <hr color="#2e2e2e" size="1"/>
+            <p class="teachers_brief fbule" href="#">{{x.introduction}}</p></span>
+             <div class="teachers_img"><a href="#"><img src="{{MEDIA_URL}}{{x.photo}}"></a><span></span></div>
+       </li>
+	   {%endfor%}
+    </ul>
+</div>
+<div class="clear"></div>
+<div class="page">
+	<p>共{{teachers_num}}条记录，<a href="#">首页</a>&nbsp;&nbsp; <a href="#">上一页</a>&nbsp;&nbsp;<a class="current">1</a>&nbsp;&nbsp; <a href="#">2</a>&nbsp;&nbsp;<a href="#">下一页</a>&nbsp;&nbsp; 第&nbsp;<select><option>1</option></select>
+    页&nbsp;&nbsp;<a href="#">尾页</a></p>
+</div>
+{% endblock %}
